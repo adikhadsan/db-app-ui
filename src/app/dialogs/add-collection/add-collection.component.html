@@ -1,0 +1,13 @@
+<div class="testing">
+    <h2>Add New Collection</h2>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Basic Url</mat-label>
+        <input matInput type="text" matInput [(ngModel)]="collectionName" placeholder="eg. my collection">
+    </mat-form-field>
+    
+    <div class="submit-button">
+        <button mat-raised-button (click)="addCollection()">Add Collection</button>
+    </div>
+    
+</div>

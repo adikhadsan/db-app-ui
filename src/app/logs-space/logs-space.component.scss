@@ -1,0 +1,50 @@
+.logs {
+    height: 100%;
+
+    .header {
+        padding: 10px;
+
+        height: 80px;
+
+        .submit-button {
+            // padding: 10px;
+            float: left;
+            margin-right: 70px;
+
+            button {
+                height: 40px;
+
+            }
+        }
+    }
+
+    // background-color: yellow;
+    .logs-card {
+        // background-color: red;
+        overflow-y: scroll;
+
+        mat-card {
+
+            // background-color: green;
+            padding: 5px;
+            margin: 5px;
+        }
+
+    }
+
+    .josn-viewer {
+        display: flex;
+        flex-direction: row;
+
+        mat-card {
+            margin: 10px;
+            padding: 10px;
+            flex: 1;
+        }
+    }
+
+}
+
+.router-link {
+    text-decoration: none;
+}

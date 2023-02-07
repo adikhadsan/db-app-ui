@@ -1,0 +1,53 @@
+<div class="logs">
+
+
+
+    <div class="header">
+        <h2>Console</h2>
+        <div class="submit-button">
+            <a mat-raised-button routerLink="/testing" class="router-link">< Home</a>
+        </div>
+    </div>
+ 
+
+
+    <div class="josn-viewer">
+
+
+        <mat-card>
+            <h2>Output</h2>
+            <mat-card-content><ngx-json-viewer [json]="output"></ngx-json-viewer></mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <h2>Expected</h2>
+            <mat-card-content><ngx-json-viewer [json]="expected"></ngx-json-viewer></mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <h2>Reason</h2>
+            <mat-card-content><ngx-json-viewer [json]="reason"></ngx-json-viewer></mat-card-content>
+        </mat-card>
+
+
+        <!-- <div class="json-body">
+            <h2>Output</h2>
+            <ngx-json-viewer [json]="output"></ngx-json-viewer>
+        </div>
+        <div class="json-body">
+            <h2>Expected</h2>
+            <ngx-json-viewer [json]="expected"></ngx-json-viewer>
+        </div>
+        <div class="json-body">
+            <h2>Reason</h2>
+            <ngx-json-viewer [json]="reason"></ngx-json-viewer>
+        </div> -->
+    </div>
+
+    
+
+
+
+
+
+</div>

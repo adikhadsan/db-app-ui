@@ -1,0 +1,33 @@
+.dashbord-cards {
+
+    display: flex;
+    flex-direction:row ;
+    flex-wrap: wrap;
+
+    .example-card {
+        padding: 10px;
+        margin: 10px;
+        width: 400px;
+        // &:hover {
+        //     box-shadow: 13px 12px 18px #010202cf;
+        // }
+
+        // @for $i from 1 to 254 {
+        //     &:nth-child(#{$i}) {
+        //         $num-colors: rgba(random(255), random(255), random(255) , 0.8);
+        //         color: $num-colors;
+        //         background-color: invert($color:  $num-colors) ;
+        //         &:hover {
+        //             box-shadow: 13px 12px 18px $num-colors;
+        //         }
+        //     }
+        //   }
+    }
+}
+mat-card-title{
+    font-weight: 600;
+
+   
+ 
+}
+ 

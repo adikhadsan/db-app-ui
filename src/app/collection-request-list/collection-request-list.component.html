@@ -1,0 +1,57 @@
+<div class="logs">
+
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let request of selectedCollectionData.children">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{request.name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    <label for="methodType" class="method-type">{{request.methodType}}</label>
+                    <label for="basicUrl" class="base-url">{{request.basicUrl}}</label>
+
+                    <div class="row-action">
+                        <button mat-icon-button class="example-icon favorite-icon"
+                            aria-label="Example icon-button with heart icon" (click)="$event.stopPropagation()">
+                            <mat-icon>play_arrow</mat-icon>
+                        </button>
+                        <button mat-icon-button class="example-icon favorite-icon"
+                            aria-label="Example icon-button with heart icon" (click)="$event.stopPropagation();deleteRecord(request)" >
+                            <mat-icon>delete_outline</mat-icon>
+                        </button>
+                    </div>
+
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+
+            <!-- <p>basicUrl : {{request.basicUrl}}</p> -->
+            <!-- <p>dataType : {{request.dataType}}</p> -->
+            <!-- <p>expectedJson : {{request.expectedJson}}</p> -->
+            <p>headers : {{request.headers}}</p>
+            <!-- <p>id : {{request.id}}</p> -->
+            <!-- <p>methodType : {{request.methodType}}</p> -->
+            <!-- <p>name : {{request.name}}</p> -->
+            <!-- <p>outputJson : {{request.outputJson}}</p> -->
+            <!-- <p>requestBody : {{request.requestBody}}</p> -->
+
+            <div class="josn-viewer">
+                <mat-card>
+                    <h2>Request Body</h2>
+                    <mat-card-content><ngx-json-viewer [json]="output"></ngx-json-viewer></mat-card-content>
+                </mat-card>
+
+                <mat-card>
+                    <h2>Expected Json</h2>
+                    <mat-card-content><ngx-json-viewer [json]="expected"></ngx-json-viewer></mat-card-content>
+                </mat-card>
+
+            </div>
+
+
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>

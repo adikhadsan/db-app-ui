@@ -1,0 +1,19 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer mode="side" opened class="example-sidenav">
+        <app-collection-list (selectRequestEvent)="selectRequest($event)"
+            (selectCollectionEvent)="selectCollection($event)"></app-collection-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="testing">
+
+            <ng-template #readlineComp>
+
+            </ng-template>
+        </div>
+
+        <!-- <div class="logs">
+            <app-logs-space ></app-logs-space>
+        </div> -->
+
+    </mat-drawer-content>
+</mat-drawer-container>

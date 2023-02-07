@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()" >
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Codeiti Testing</span>
+    <span class="example-spacer"></span>
+
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+    <mat-drawer  #drawer  mode="side" opened  class="example-sidenav">
+        <app-storage-space (selectRequestEvent)="selectRequest($event)" ></app-storage-space>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="testing">
+            <!-- <router-outlet></router-outlet> -->
+            <!-- <app-testing-space  [selectedRequestData]="selectedRequestData" ></app-testing-space> -->
+        </div>
+        <!-- <div class="logs">
+            <app-logs-space></app-logs-space>
+        </div> -->
+       
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+<!-- <app-result-space></app-result-space> -->

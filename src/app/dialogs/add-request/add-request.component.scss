@@ -1,0 +1,54 @@
+.testing {
+
+    padding: 15px; 
+  
+    .url-body {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .example-form {
+      min-width: 150px;
+      max-width: 95%;
+   
+    }
+  
+    .example-full-width {
+      width: 100%;
+    }
+  
+    .submit-button {
+      padding: 10px;
+  
+      button {
+        height: 30px;
+      }
+    }
+  }
+  
+  mat-form-field {
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  
+  ::ng-deep .mat-select-trigger {
+    min-width: 80vw;
+  }
+  
+  ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+  }
+  
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  
+  ::ng-deep .mat-form-field-subscript-wrapper {
+    display: none;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: .5em;
+  }

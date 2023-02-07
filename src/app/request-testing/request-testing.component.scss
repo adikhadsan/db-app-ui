@@ -1,0 +1,64 @@
+.testing {
+
+    padding: 15px;
+  
+    .url-body {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .example-form {
+      min-width: 150px;
+      max-width: 95%;
+      margin-top: 20px;
+    }
+  
+    .example-full-width {
+      width: 100%;
+    }
+  
+    .submit-button {
+      // padding: 10px;
+      float: right;
+      margin-right: 70px;
+  
+      button {
+        height: 40px;
+      }
+    }
+  }
+  
+  mat-form-field {
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+    font-size: 14px;
+  
+    textarea {
+      height: 350px;
+    }
+  }
+  
+  ::ng-deep .mat-select-trigger {
+    min-width: 80vw;
+  }
+  
+  ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+  }
+  
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  
+  ::ng-deep .mat-form-field-subscript-wrapper {
+    display: none;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: .5em;
+  }
+  
+  .router-link{
+    text-decoration: none;
+  }

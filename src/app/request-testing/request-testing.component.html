@@ -1,0 +1,67 @@
+<div class="testing">
+    
+    <div class="header">
+        <div class="submit-button">
+            <button mat-raised-button (click)="testCaseApi()">Submit</button>
+            <!-- <a mat-raised-button  routerLink="/collection/console">Submit</a> -->
+        </div>
+        
+        <h2>Request </h2><span>: {{selectedRequestData?.name}}</span>
+       
+       
+    </div>
+  
+    <form [formGroup]="testDtoForm" class="example-form">
+
+        <div class="url-body">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Method</mat-label>
+                <mat-select formControlName="methodType">
+                    <mat-option value="Post">Post</mat-option>
+                    <mat-option value="Get">Get</mat-option>
+                    <mat-option value="Delete">Delete</mat-option>
+                    <mat-option value="Put">Put</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Basic Url</mat-label>
+                <input matInput type="text" matInput formControlName="basicUrl" placeholder="http://test:8080">
+            </mat-form-field>
+
+        </div>
+
+        <div class="url-body">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>EndPoint</mat-label>
+                <input matInput type="text" matInput formControlName="endPoint" placeholder="http://test:8080">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Headers</mat-label>
+                <input matInput type="text" matInput formControlName="headers">
+            </mat-form-field>
+        </div>
+
+        <div class="url-body">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Request Body</mat-label>
+                <textarea matInput formControlName="requestBody" ></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Expected Json </mat-label>
+                <textarea matInput formControlName="expectedJson"></textarea>
+            </mat-form-field>
+
+        </div>
+
+    </form>
+ 
+
+  
+
+</div>
