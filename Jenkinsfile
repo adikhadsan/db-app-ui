@@ -4,7 +4,7 @@ pipeline{
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
 	        PORT_ui= 9193
-          DIST= '/var/lib/jenkins/workspace/${job}/dist'
+          DIST= /var/lib/jenkins/workspace/${job}/dist
           USER_DOCKER= 8485012281
           IMG_NAME= 'db_ui'
           CONTAINER_NAME= 'ui-container'
