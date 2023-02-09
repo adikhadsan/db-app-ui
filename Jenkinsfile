@@ -4,21 +4,21 @@ pipeline{
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
 	        PORT_ui= 9193
-          DIST= /var/lib/jenkins/workspace/${job}/dist
+//           DIST= /var/lib/jenkins/workspace/${job}/dist
           USER_DOCKER= 8485012281
           IMG_NAME= 'db_ui'
           CONTAINER_NAME= 'ui-container'
           
 	}
-    stages {
-	    stage('name'){
-		    steps {
+//     stages {
+// 	    stage('name'){
+// 		    steps {
 			    
-			    sh'echo $JOB_NAME'
-	        sh'job=${JOB_NAME}'
-	        sh'echo $job'
-		    }
-	    }
+// 			    sh'echo $JOB_NAME'
+// 	        sh'job=${JOB_NAME}'
+// 	        sh'echo $job'
+// 		    }
+// 	    }
     
     
 	   
@@ -41,7 +41,7 @@ pipeline{
 	stage('	Copy dist file'){
 	     steps{
 		 sh'pwd'    
-		 sh'cp -r $DIST .'
+		 sh'cp -r /var/lib/jenkins/workspace/$JOB_NAME/dist .'
 		 sh'ls'    
 		// sh 'docker build -t spring-img --build-arg dokcerjob=$JOB_NAME .'
 	     }
