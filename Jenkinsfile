@@ -10,7 +10,7 @@ pipeline{
           CONTAINER_NAME= 'ui-container'
           
 	}
-//     stages {
+    stages {
 // 	    stage('name'){
 // 		    steps {
 			    
