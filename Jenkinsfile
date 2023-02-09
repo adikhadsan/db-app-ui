@@ -41,6 +41,7 @@ pipeline{
 	stage('	Copy dist file'){
 	     steps{
 		 sh'pwd'    
+     sh'ls'    
 		 sh'cp -r -i /var/lib/jenkins/workspace/$JOB_NAME/dist .'
 		 sh'ls'    
 		// sh 'docker build -t spring-img --build-arg dokcerjob=$JOB_NAME .'
