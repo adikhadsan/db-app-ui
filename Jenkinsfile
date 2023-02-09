@@ -4,7 +4,7 @@ pipeline{
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
 	        PORT_ui= 9193
-          DIST= '/var/lib/jenkins/workspace/$JOB_NAME/dist'
+          DIST= '/var/lib/jenkins/workspace/${JOB_NAME}/dist'
           USER_DOCKER= 8485012281
           IMG_NAME= 'db_ui'
           CONTAINER_NAME= 'ui-container'
@@ -23,20 +23,20 @@ pipeline{
     
 	   
 
-        stage('angular build') {
-             steps {
+//         stage('angular build') {
+//              steps {
             
-                sh'''
-                  pwd
-                  cd /var/lib/jenkins/workspace/${JOB_NAME}/
-                  ls
-                  npm i
-                  ng build
+//                 sh'''
+//                   pwd
+//                   cd /var/lib/jenkins/workspace/${JOB_NAME}/
+//                   ls
+//                   npm i
+//                   ng build
               
               
-                  '''
-             }
-         }
+//                   '''
+//              }
+//          }
 	
 	stage('	Copy dist file'){
 	     steps{
