@@ -42,7 +42,7 @@ export class TestService {
   // }
 
   getAllUsers(): Observable<any> {
-    const apiUrl = 'http://localhost:9192/crud/user/getAll';
+    const apiUrl = 'http://localhost:9192/demoCRUD-0.0.1-SNAPSHOT/user/getAll';
     return this.http.get<any>(apiUrl);
   }
   
