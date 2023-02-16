@@ -3,11 +3,11 @@ pipeline{
      environment {
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
-	        PORT_ui= 9193
+// 	        PORT_ui= 9193
 //           DIST= /var/lib/jenkins/workspace/${job}/dist
           USER_DOCKER= 8485012281
           IMG_NAME= 'db_ui'
-          CONTAINER_NAME= 'ui-container'
+//           CONTAINER_NAME= 'ui-container'
           
 	}
     stages {
@@ -57,7 +57,8 @@ pipeline{
 			    sh'echo $GIT_COMMIT'
 		    }
 	    }
-	
+	 
+   
 	 stage('docker build'){
 	     steps{
 		 sh'docker build -t $USER_DOCKER/$IMG_NAME:$GIT_COMMIT .'
@@ -77,17 +78,31 @@ pipeline{
 		sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
 	     }
-	 } 
-	 stage('docker push'){
+	 }
+   stage('docker push'){
 	     steps{
 		 sh 'docker push $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
 	     }
-	 }
-	 stage('docker run'){
+	 }   
+   stage('docker check on remote ') {
+     when { environment name: 'docker', value: '' }
+     steps {
+       sh 'ansible-playbook docker-playbook.yml --extra-vars “network_name=mynetwork subnet=10.11.0.0/16 gateway=10.11.0.1”'
+        
+     }
+   }   
+   stage('docker login on remote machine'){
+	     steps{
+         sh 'ansible-playbook login.yml --extra-vars “uname=8485012281 passwd=Aditya@123”'
+       }
+   }
+	 
+	 stage('docker container run on remote'){
 	     steps{
 // 		 sh 'docker run -d -p 5000:3306 --name mysql-$GIT_COMMIT -e MYSQL_ROOT_PASSWORD=root mysql'  
 // 		 sh 'sleep 30'    
-		 sh 'docker run -d -p $PORT_ui:8080 --net static --ip 10.11.0.14 --name $CONTAINER_NAME-$GIT_COMMIT $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
+// 		 sh 'docker run -d -p $PORT_ui:8080 --net static --ip 10.11.0.14 --name $CONTAINER_NAME-$GIT_COMMIT $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
+     sh 'ansible-playbook frontend.yml --extra-vars “image_name=db_ui:14bc45ef4f74d6ac015158e5ada6f6d198c13302 port=9193"'    
 		 sh 'sleep 30'
 		 sh 'docker ps'
 	     }
