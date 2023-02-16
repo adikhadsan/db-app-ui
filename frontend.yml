@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: ubuntu
+  become: true
+  tasks:
+ 
+    - name: Pull default Docker image
+      docker_container:
+        image: "{{ image_name }}"
+        name: ui
+        state: started
+        networks:
+        - name: my_network
+          ipv4_address: 10.11.0.14  
+    # auto_remove: true
+        ports:
+          - "{{port}}:8080"
