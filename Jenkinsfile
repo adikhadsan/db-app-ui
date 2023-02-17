@@ -60,18 +60,18 @@ pipeline{
 	    }
 	 
    
-	 stage('docker build'){
-	     steps{
-		 sh'docker build -t $USER_DOCKER/$IMG_NAME:$GIT_COMMIT .'
-		// sh 'docker build -t spring-img-jar --build-arg dokcerjob=$JOB_NAME .'
-	     }
-	 } 
-	 stage('image check'){
-	     steps{
-		 sh'sleep 30'
-		 sh'docker images'
-	     }
-	 }
+// 	 stage('docker build'){
+// 	     steps{
+// 		 sh'docker build -t $USER_DOCKER/$IMG_NAME:$GIT_COMMIT .'
+// 		// sh 'docker build -t spring-img-jar --build-arg dokcerjob=$JOB_NAME .'
+// 	     }
+// 	 } 
+// 	 stage('image check'){
+// 	     steps{
+// 		 sh'sleep 30'
+// 		 sh'docker images'
+// 	     }
+// 	 }
 	 stage('docker login'){
 	     steps{
 
@@ -80,11 +80,11 @@ pipeline{
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
 	     }
 	 }
-   stage('docker push'){
-	     steps{
-		 sh 'docker push $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
-	     }
-	 }   
+//    stage('docker push'){
+// 	     steps{
+// 		 sh 'docker push $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
+// 	     }
+// 	 }   
    stage('docker check on remote ') {
      when { environment name: 'docker', value: '' }
      steps {
@@ -93,7 +93,7 @@ pipeline{
    }   
    stage('docker login on remote machine'){
 	     steps{
-         sh 'ansible-playbook login.yml --extra-vars "{"uname":"8485012281","passwd":"Aditya@123"}"'
+         sh 'ansible-playbook login.yml --extra-vars "uname:8485012281,{"passwd":"Aditya@123"}"'
        }
    }
 	 
