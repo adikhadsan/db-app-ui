@@ -48,7 +48,7 @@
     - name: network
       become: yes
       docker_network:
-        name: mynetwork
+        name: my_network
         ipam_config:
           - subnet: 10.11.0.0/16
             gateway: 10.11.0.1
