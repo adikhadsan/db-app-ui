@@ -24,20 +24,20 @@ pipeline{
     
 	   
 
-//         stage('angular build') {
-//              steps {
+        stage('angular build') {
+             steps {
             
-//                 sh'''
-//                   pwd
-//                   cd /var/lib/jenkins/workspace/${JOB_NAME}/
-//                   ls
-//                   npm i
-//                   ng build
+                sh'''
+                  pwd
+                  cd /var/lib/jenkins/workspace/${JOB_NAME}/
+                  ls
+                  npm i
+                  ng build
               
               
-//                   '''
-//              }
-//          }
+                  '''
+             }
+         }
 	
 // 	stage('	Copy dist file'){
 // 	     steps{
@@ -60,18 +60,18 @@ pipeline{
 	    }
 	 
    
-// 	 stage('docker build'){
-// 	     steps{
-// 		 sh'docker build -t $USER_DOCKER/$IMG_NAME:$GIT_COMMIT .'
-// 		// sh 'docker build -t spring-img-jar --build-arg dokcerjob=$JOB_NAME .'
-// 	     }
-// 	 } 
-// 	 stage('image check'){
-// 	     steps{
-// 		 sh'sleep 30'
-// 		 sh'docker images'
-// 	     }
-// 	 }
+	 stage('docker build'){
+	     steps{
+		 sh'docker build -t $USER_DOCKER/$IMG_NAME:$GIT_COMMIT .'
+		// sh 'docker build -t spring-img-jar --build-arg dokcerjob=$JOB_NAME .'
+	     }
+	 } 
+	 stage('image check'){
+	     steps{
+		 sh'sleep 30'
+		 sh'docker images'
+	     }
+	 }
 	 stage('docker login'){
 	     steps{
 
@@ -80,11 +80,11 @@ pipeline{
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
 	     }
 	 }
-//    stage('docker push'){
-// 	     steps{
-// 		 sh 'docker push $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
-// 	     }
-// 	 }   
+   stage('docker push'){
+	     steps{
+		 sh 'docker push $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
+	     }
+	 }   
    stage('docker check on remote ') {
      when { environment name: 'docker', value: '' }
      steps {
@@ -99,7 +99,7 @@ pipeline{
 	 
 	 stage('docker container run on remote'){
 	     steps{
-         sh 'ansible-playbook frontend.yml --extra-vars "image_name=db_ui:$GIT_COMMIT port=9193"'    
+         sh 'ansible-playbook frontend.yml --extra-vars "image_name=8485012281/db_ui:$GIT_COMMIT port=9193"'    
 		     sh 'sleep 30'
 		     sh 'docker ps'
 	     }
