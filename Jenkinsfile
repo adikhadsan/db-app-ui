@@ -87,8 +87,7 @@ pipeline{
    stage('docker check on remote ') {
      when { environment name: 'docker', value: '' }
      steps {
-       sh 'ansible-playbook docker-playbook.yml --extra-vars “network_name=mynetwork "subnet='10.11.0.0/16'" "gateway='10.11.0.1'"”'
-        
+       sh 'ansible-playbook docker-playbook.yml'
      }
    }   
    stage('docker login on remote machine'){
