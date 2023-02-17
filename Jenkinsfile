@@ -99,7 +99,7 @@ pipeline{
 	 
 	 stage('docker container run on remote'){
 	     steps{
-         sh 'ansible-playbook frontend.yml --extra-vars “image_name=db_ui:$GIT_COMMIT port=9193"'    
+         sh 'ansible-playbook frontend.yml --extra-vars "image_name=db_ui:$GIT_COMMIT port=9193"'    
 		     sh 'sleep 30'
 		     sh 'docker ps'
 	     }
