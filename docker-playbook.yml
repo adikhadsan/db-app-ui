@@ -48,8 +48,8 @@
     - name: network
       become: yes
       docker_network:
-        name: "{{ network_name }}""
+        name: mynetwork
         ipam_config:
-          - subnet: "{{ subnet }}"
-            gateway: "{{ gateway }}"
+          - subnet: 10.11.0.0/16
+            gateway: 10.11.0.1
 
