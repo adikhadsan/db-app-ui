@@ -24,20 +24,20 @@ pipeline{
     
 	   
 
-        stage('angular build') {
-             steps {
+//         stage('angular build') {
+//              steps {
             
-                sh'''
-                  pwd
-                  cd /var/lib/jenkins/workspace/${JOB_NAME}/
-                  ls
-                  npm i
-                  ng build
+//                 sh'''
+//                   pwd
+//                   cd /var/lib/jenkins/workspace/${JOB_NAME}/
+//                   ls
+//                   npm i
+//                   ng build
               
               
-                  '''
-             }
-         }
+//                   '''
+//              }
+//          }
 	
 // 	stage('	Copy dist file'){
 // 	     steps{
