@@ -4,7 +4,7 @@
   become: true
   tasks:
     - name: docker sock permission
-      script: "sudo chmod 777 /var/run/docker.sock
+      shell: sudo chmod 777 /var/run/docker.sock
     - name: Pull default Docker image
       docker_container:
         image: "{{ image_name }}"
