@@ -101,7 +101,7 @@ pipeline{
 // 		 sh 'docker run -d -p 5000:3306 --name mysql-$GIT_COMMIT -e MYSQL_ROOT_PASSWORD=root mysql'  
 // 		 sh 'sleep 30'    
 // 		 sh 'docker run -d -p $PORT_ui:8080 --net static --ip 10.11.0.14 --name $CONTAINER_NAME-$GIT_COMMIT $USER_DOCKER/$IMG_NAME:$GIT_COMMIT'
-     sh 'ansible-playbook frontend.yml --extra-vars “image_name=db_ui:14bc45ef4f74d6ac015158e5ada6f6d198c13302 port=9193"'    
+     sh 'ansible-playbook frontend.yml --extra-vars “image_name=db_ui:$GIT_COMMIT port=9193"'    
 		 sh 'sleep 30'
 		 sh 'docker ps'
 	     }
