@@ -7,6 +7,7 @@ pipeline{
 //           DIST= /var/lib/jenkins/workspace/${job}/dist
           USER_DOCKER= 8485012281
           IMG_NAME= 'db_ui'
+          docker= sh (script: 'docker --version',returnStdout: true)
 //           CONTAINER_NAME= 'ui-container'
           
 	}
