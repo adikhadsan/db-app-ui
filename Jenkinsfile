@@ -2,10 +2,11 @@ pipeline{
     agent any
      environment {
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
-	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
-// 	        PORT_ui= 9193
+	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
+	        PORT_ui= 9193
 //           DIST= /var/lib/jenkins/workspace/${job}/dist
           USER_DOCKER= 8485012281
+          PASS_DOCKER= "Aditya@123"
           IMG_NAME= 'db_ui'
           docker= sh (script: 'docker --version',returnStdout: true)
 //           CONTAINER_NAME= 'ui-container'
@@ -77,7 +78,7 @@ pipeline{
 
 		sh 'echo $DOCKERHUB_CREDENTIALS_USR'
 		sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
-			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $USER_DOCKER -p $PASS_DOCKER'
 	     }
 	 }
    stage('docker push'){
@@ -93,13 +94,13 @@ pipeline{
    }   
    stage('docker login on remote machine'){
 	     steps{
-         sh 'ansible-playbook login.yml --extra-vars "uname=8485012281 passwd=Aditya@123"'
+         sh 'ansible-playbook login.yml --extra-vars "uname=$USER_DOCKER passwd=$PASS_DOCKER"'
        }
    }
 	 
 	 stage('docker container run on remote'){
 	     steps{
-         sh 'ansible-playbook frontend.yml --extra-vars "image_name=8485012281/db_ui:$GIT_COMMIT port=9193"'    
+         sh 'ansible-playbook frontend.yml --extra-vars "image_name=$USER_DOCKER/$IMG_NAME:$GIT_COMMIT port=$PORT_ui"'    
 		     sh 'sleep 30'
 		     sh 'docker ps'
 	     }
