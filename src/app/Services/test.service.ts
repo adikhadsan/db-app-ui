@@ -42,7 +42,7 @@ export class TestService {
   // }
 
   getAllUsers(): Observable<any> {
-    const apiUrl = 'http://10.11.0.13:8080/demoCRUD-0.0.1-SNAPSHOT/user/getAll';
+    const apiUrl = 'http://192.168.56.102:9192/demoCRUD-0.0.1-SNAPSHOT/user/getAll';
     return this.http.get<any>(apiUrl);
   }
   
