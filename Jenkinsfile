@@ -8,7 +8,7 @@ pipeline{
           USER_DOCKER= 8485012281
           PASS_DOCKER= "Aditya@123"
           IMG_NAME= 'db_ui'
-          docker= sh (script: 'sshpass -p 's1' ssh vboxuser@192.168.56.102 "docker --version"',returnStdout: true)
+          docker= sh (script: 'sshpass -p s1 ssh vboxuser@192.168.56.102 docker --version',returnStdout: true)
 //           CONTAINER_NAME= 'ui-container'
           
 	}
