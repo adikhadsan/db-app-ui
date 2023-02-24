@@ -25,30 +25,30 @@ pipeline{
     
 	   
 
-//         stage('angular build') {
-//              steps {
+        stage('angular build') {
+             steps {
             
-//                 sh'''
-//                   pwd
-//                   cd /var/lib/jenkins/workspace/${JOB_NAME}/
-//                   ls
-//                   npm i
-//                   ng build
+                sh'''
+                  pwd
+                  cd /var/lib/jenkins/workspace/${JOB_NAME}/
+                  ls
+                  npm i
+                  ng build
               
               
-//                   '''
-//              }
-//          }
+                  '''
+             }
+         }
 	
-// 	stage('	Copy dist file'){
-// 	     steps{
-// 		 sh'pwd'    
-//      sh'ls'    
-// 		 sh'cp -r -i /var/lib/jenkins/workspace/$JOB_NAME/dist .'
-// 		 sh'ls'    
-// 		// sh 'docker build -t spring-img --build-arg dokcerjob=$JOB_NAME .'
-// 	     }
-// 	 }
+	stage('	Copy dist file'){
+	     steps{
+		 sh'pwd'    
+     sh'ls'    
+		 sh'cp -r -i /var/lib/jenkins/workspace/$JOB_NAME/dist .'
+		 sh'ls'    
+		// sh 'docker build -t spring-img --build-arg dokcerjob=$JOB_NAME .'
+	     }
+	 }
 	    
 	  
 	
